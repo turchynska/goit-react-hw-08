@@ -1,4 +1,3 @@
-
 import { useNavigate } from "react-router-dom";
 import css from './UserMenu.module.css';
 import { useDispatch, useSelector } from "react-redux";
@@ -19,7 +18,7 @@ const UserMenu = () => {
 
   return (
     <div className={css.box}>
-      <h3 className={css.text}><FaRegUser className={css.icon} /> {user.name}</h3>
+     <h3 className={css.text}><FaRegUser className={css.icon} /> {user.name}</h3>
       <button type="button" className={css.btn} onClick={logOut}>
       <CiLogout />
        Log Out

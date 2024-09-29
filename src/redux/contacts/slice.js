@@ -9,7 +9,7 @@ const initialState = {
 }
 
 export const contactsSlice = createSlice({
-    name: ' contacts',
+    name: 'contacts',
     initialState,
     reducers: {},
     extraReducers: builder => {
@@ -62,7 +62,7 @@ export const contactsSlice = createSlice({
           }
       })
     .addCase(updateContact.rejected, (state, action) => {
-        state.loading = true;
+        state.loading = false;
         state.error = action.payload;
     })
 }

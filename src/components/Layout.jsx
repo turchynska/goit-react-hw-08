@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { Suspense } from "react";
 import AppBar from "./AppBar/AppBar";
 

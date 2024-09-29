@@ -47,7 +47,7 @@ builder
 .addCase(logout.fulfilled, (state) => {
     state.isLoggedIn = false;
     state.token = null;
-    state.user = {name: null, eamil: null}
+    state.user = {name: null, email: null}
 })
 .addCase(logout.rejected, (state, action) => {
     state.error = action.payload

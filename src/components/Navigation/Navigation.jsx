@@ -13,7 +13,7 @@ const getLinkStyles = ({isActive}) =>
 const Navigation = () => {
   const isLoggedIn = useSelector(selectLoggedIn)
   return (
-    <div className={css.nav}>
+    <div className={css.box}>
       <NavLink to="/" className={getLinkStyles}>
         Home
       </NavLink>

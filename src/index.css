@@ -28,6 +28,8 @@ ol {
 
 a {
   text-decoration: none;
+  color: #00a7ee; 
+  font-weight: bold;
 }
 
 button {
@@ -43,13 +45,17 @@ img {
 .pages {
   margin: 50px;
 }
-
-.greet {
+.title {
+  margin-bottom: 30px;
+  color: rgb(130, 191, 238);
   font-size: 50px;
-  text-transform: uppercase;
-  color: #19528e;
+}
+.greet {
   text-align: center;
-  margin-bottom: 50px;
+  margin-top: 50px; 
+  font-size: 3rem; 
+  color: #003366; 
+  font-family: 'Georgia', serif; 
 }
 
 .contact {

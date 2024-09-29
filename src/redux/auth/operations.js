@@ -16,15 +16,16 @@ export const registerAuth = createAsyncThunk('auth/register',
 
 export const login = createAsyncThunk('auth/login',
         async(userData, thunkApi) => {
-                try{
-        const data = await instance.post('users/login', userData)
-        setAuthHeaders(data.token)
-        return data;
-                }catch(error){
-        return thunkApi.rejectWithValue(error.message)
-                }
+          try {
+            const response = await instance.post('users/login', userData);
+            const { token, user } = response.data; 
+            setAuthHeaders(token);
+            return { token, user };  
+          } catch (error) {
+            return thunkApi.rejectWithValue(error.message);
+          }
         }
-)
+      )
 
 export const logout = createAsyncThunk('auth/logout',
         async(_, thunkApi) => {
@@ -43,6 +44,8 @@ export const refreshUser = createAsyncThunk('auth/refresh',
         const state = thunkApi.getState();
         const token = state.auth.token;
         setAuthHeaders(token)
+        const { data } = await instance.get('users/current');
+      return data;
                 }catch(error){
         return thunkApi.rejectWithValue(error.message)
                 }
