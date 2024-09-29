@@ -11,7 +11,7 @@ const LoginForm = () => {
   const navigate = useNavigate();
   const error = useSelector(selectAuthError);
   const emailField = "email-field";
-  const passwordField = "password=field";
+  const passwordField = "password-field";
 
   const LoginSchema = Yup.object().shape({
     password: Yup.string()
@@ -23,22 +23,21 @@ const LoginForm = () => {
       .email("Password is incorrect"),
   });
 
-  const handleSubmit = (value, actions) => {
-    dispatch(
-      login({
-        email: value.email,
-        password: value.password,
-      })
-    );
+
+  const handleSubmit = (values, actions) => {
+    dispatch(login({
+      email: values.email,
+      password: values.password,
+    }));
     actions.resetForm();
-    navigate("/");
+    navigate('/');
   };
 
   return (
     <Formik
       initialValues={{
         email: "",
-        password: "",
+        password: ""
       }}
       onSubmit={handleSubmit}
       validationSchema={LoginSchema}
@@ -61,7 +60,7 @@ const LoginForm = () => {
         </label>
         <Field
           className={css.field}
-          type="text"
+          type="password"
           name="password"
           placeholder="please enter password"
         />

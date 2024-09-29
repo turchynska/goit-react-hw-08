@@ -1,14 +1,4 @@
-// import css from './UserMenu.module.css'
 
-// const UserMenu = () => {
-//     return(
-//         <div className={css.box}>
-//             <p>Welcome, username</p>
-//             <button>Log out</button>
-//         </div>
-//     )
-// }
-// export default UserMenu
 import { useNavigate } from "react-router-dom";
 import css from './UserMenu.module.css';
 import { useDispatch, useSelector } from "react-redux";

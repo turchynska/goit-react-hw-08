@@ -1,15 +1,36 @@
 .form{
-
-}
-.name{
-
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    border: 1px solid black;
+    padding: 30px 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
 }
 .field{
-
+    width: 100%;
+    height: 30px;
+    padding: 0 10px;
+    color: rgb(130, 182, 238);
 }
-.error{
 
+.error{
+    align-self: flex-start;
+    color: red;
 }
 .btn{
-    
-}
+    width: 100px;
+    height: 30px;
+    background-color: transparent;
+    border: 1px solid grey;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    align-self: center;
+  }
+  
+  .btn:hover {
+    background-color: rgb(130, 180, 238);
+  }

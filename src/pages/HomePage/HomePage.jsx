@@ -8,7 +8,7 @@ const HomePage = () => {
 
   return isLoggedIn ? (
     <div>
-      <h1 className="greet">Welcome back, {user.name}!</h1>
+      <h1 className="greet">Welcome back, {user.name || 'User'}!</h1>
     </div>
   ) : (
     <div>

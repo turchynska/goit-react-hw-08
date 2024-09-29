@@ -11,11 +11,24 @@ const RegisterForm = () => {
   const passwordField = 'password-field';
   const dispatch = useDispatch();
   const error = useSelector(selectAuthError);
-
+  
   const RegistrationSchema = Yup.object().shape({
-    name: Yup.string().required('Name is required').min(3, 'Too Short!').max(50, "Too Long!"),
-    email: Yup.string().required('Email is required').min(8, 'Password should contain at least 8 symbols').max(50, "Too Long!"),
-    password: Yup.string().required('Password is required').email('Password should contain letters, numbers and symbols'),
+    name: Yup.string()
+      .required('Name is required')
+      .min(3, 'Too Short!')
+      .max(50, "Too Long!"),
+    
+    email: Yup.string()
+      .required('Email is required')
+      .email('Invalid email')
+      .min(8, 'Email should contain at least 8 characters')
+      .max(50, "Too Long!"),
+    
+    password: Yup.string()
+      .required('Password is required')
+      .min(8, 'Password should contain at least 8 characters')
+      .matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, 
+      'Password should contain at least one letter, one number, and one special character'),
   });
 
   const handleSubmit = (values, actions) => {

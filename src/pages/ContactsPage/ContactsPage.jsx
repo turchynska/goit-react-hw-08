@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
-import ContactForm from "../components/ContactForm/ContactForm";
-import ContactList from "../components/ContactList/ContactList";
-import Loader from "../components/Loader/Loader";
+import ContactForm from "../../components/ContactForm/ContactForm";
+import ContactList from "../../components/ContactList/ContactList";
+import Loader from "../../components/Loader/Loader";
 // import SearchBox from "../components/SearchBox/SearchBox";
-import { selectContacts } from "../redux/contacts/selectors";
-import { selectVisibleContacts } from "../redux/filters/selectors";
+import { selectContacts } from "../../redux/contacts/selectors";
+import { selectVisibleContacts } from "../../redux/filters/selectors";
 import { useEffect } from "react";
-import { fetchContacts } from "../redux/contacts/operations";
+import { fetchContacts } from "../../redux/contacts/operations";
 import { PiSmileyMeltingThin } from "react-icons/pi";
 
 const ContactsPage = () => {
@@ -22,14 +22,14 @@ const ContactsPage = () => {
   return (
     <>
       <h2 className="title">Phonebook</h2>
-      <ContactForm />
+     { <ContactForm />}
       {/* <SearchBox /> */}
       {loading && <Loader />}
       {error && <p>Cant load contacts at the moment</p>}
       {!loading && !error && contacts.length !== 0 ? (
         <ContactList contacts={contacts} />
       ) : (
-        <div className="phonebookEmpty">
+        <div className="phonebook">
           <p>The phonebook is empty</p>
           <PiSmileyMeltingThin />
         </div>
