@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import ContactList from "../../components/ContactList/ContactList";
 import Loader from "../../components/Loader/Loader";
-// import SearchBox from "../components/SearchBox/SearchBox";
+import SearchBox from "../../components/SearchBox/SearchBox";
 import { selectContacts } from "../../redux/contacts/selectors";
 import { selectVisibleContacts } from "../../redux/filters/selectors";
 import { useEffect } from "react";
@@ -22,8 +22,8 @@ const ContactsPage = () => {
   return (
     <>
       <h2 className="title">Phonebook</h2>
-     { <ContactForm />}
-      {/* <SearchBox /> */}
+      <ContactForm />
+      <SearchBox />
       {loading && <Loader />}
       {error && <p>Cant load contacts at the moment</p>}
       {!loading && !error && contacts.length !== 0 ? (

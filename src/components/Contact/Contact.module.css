@@ -1,4 +1,4 @@
-.box{
+.box {
     width: calc((100% - 45px) / 3);
     display: flex;
     align-items: center;
@@ -6,37 +6,40 @@
     border: 2px solid black;
     border-radius: 10px;
     padding: 15px 20px;
-}
-.list{
+  }
+  
+  .list {
     display: flex;
     flex-direction: column;
     gap: 10px;
     list-style: none;
     padding: 0;
-}
-.item{
+  }
+  
+  .item {
     display: flex;
     align-items: baseline;
     gap: 10px;
-}
-.icon{
-    fill: rgb(130, 175, 238);
-}
-.input{
+  }
+  
+  .icon {
+    fill: rgb(130, 198, 238);
+  }
+  
+  .input {
     width: 120px;
     border-radius: 5px;
-    border: 1px solid rgb(130, 175, 238);
+    border: 1px solid rgb(130, 180, 238);
     overflow: hidden;
-}
-.text{
-    
-}
-.button{
+  }
+  
+  .buttons {
     display: flex;
     flex-direction: column;
     gap: 5px;
-}
-.btn{
+  }
+  
+  .btn {
     width: 80px;
     height: 30px;
     background-color: transparent;
@@ -47,5 +50,5 @@
   }
   
   .btn:hover {
-    background-color: rgb(130, 168, 238);
+    background-color: rgb(130, 209, 238);
   }

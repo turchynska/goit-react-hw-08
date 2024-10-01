@@ -6,6 +6,7 @@ import {deleteContact, updateContact} from '../../redux/contacts/operations'
 import toast from 'react-hot-toast'
 import { useState } from 'react'
 import { CiEdit } from 'react-icons/ci'
+import Modal from '../Modal/Modal';
 
 
 const Contact = ({contact}) => {
@@ -21,71 +22,71 @@ const Contact = ({contact}) => {
     const handleClose = () => setIsOpen(false);
 
     const removeContact = () => {
-        dispatch(deleteContact(id))
+      dispatch(deleteContact(id))
         .unwrap()
         .then(() => {
-            toast.success('Contact delete successesfully');
-            handleClose()
-        })
-    }
-
+          toast.success('Contact deleted successfully');
+          handleClose();
+      });
+    };
+    
     const handleEditToggle = () => setIsEditing((prev) => !prev);
-
     const handleSave = () => {
-        dispatch(updateContact({contactId: id, updateContact: { name: editedName, number: editedNumber}}))
+      dispatch(updateContact({ contactId: id, updatedContact: { name: editedName, number: editedNumber } }))
         .unwrap()
         .then(() => {
-            toast.success('Contact update successesfully')
-            setIsEditing(false)
+          toast.success('Contact updated successfully');
+          setIsEditing(false);
         })
-    }
-    return(
-        <div className={css.box}>
-            <ul className={css.list}>
-            <li className={css.item}>
-          <FaUser className={css.icon} />
+    };
+    return (
+      <div className={css.box}>
+        <ul className={css.list}>
+          <li className={css.item}>
+            <FaUser className={css.icon} />
+            {isEditing ? (
+              <input
+                type="text"
+                value={editedName}
+                onChange={(e) => setEditedName(e.target.value)}
+                className={css.input}
+                autoFocus
+            />
+            ) : (
+              <p className={css.text}>{name}</p>
+            )}
+          </li>
+          <li className={css.item}>
+            <FaPhoneAlt className={css.icon} />
+            {isEditing ? (
+              <input
+                type="text"
+                value={editedNumber}
+                onChange={(e) => setEditedNumber(e.target.value)}
+                className={css.input}
+                autoFocus
+              />
+            ) : (
+              <p className={css.text}>{number}</p>
+            )}
+          </li>
+        </ul>
+        <div className={css.buttons}>
           {isEditing ? (
-            <input
-              type="text"
-              value={editedName}
-              onChange={(e) => setEditedName(e.target.value)}
-              className={css.input}
-              autoFocus
-          />
+            <>
+            <button type='button' className={css.btn} onClick={handleSave}>Save</button>
+            <button type='button' className={css.btn} onClick={handleEditToggle}>Cancel</button>
+            </>
           ) : (
-            <p className={css.text}>{name}</p>
+            <>
+             <button type='button' className={css.btn} onClick={handleOpen}>Delete</button>
+             <button type='button' className={css.btn} onClick={handleEditToggle}>Edit <CiEdit/></button>
+            </>
           )}
-        </li>
-        <li className={css.item}>
-          <FaPhoneAlt className={css.icon} />
-          {isEditing ? (
-            <input
-              type="text"
-              value={editedNumber}
-              onChange={(e) => setEditedNumber(e.target.value)}
-              className={css.input}
-              autoFocus
-          />
-          ) : (
-            <p className={css.text}>{number}</p>
-          )}
-        </li>
-            </ul>
-            <div className={css.button}>
-                {isEditing ? (
-                    <>
-                    <button type='button' className={css.btn} onClick={handleSave}>Save</button>
-                    <button type='button' className={css.btn} onClick={handleEditToggle}>Cancel</button>
-                    </>
-                ) : (
-                    <>
-                    <button type='button' className={css.btn} onClick={handleOpen}>Delete</button>
-                    <button type='button' className={css.btn} onClick={handleEditToggle}>Edit<CiEdit/></button>
-                    </>
-                )}
-            </div>
-            {isOpen && <Modal onClose={handleClose} onDelete={removeContact}/>}
         </div>
-    )
-}
-export default Contact
+        {isOpen && <Modal onClose={handleClose} onDelete={removeContact} />}
+      </div>
+    );
+  }
+  
+  export default Contact;

@@ -6,6 +6,7 @@ import { FaRegUser } from "react-icons/fa";
 import { CiLogout } from "react-icons/ci";
 import { logout } from "../../redux/auth/operations";
 
+
 const UserMenu = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
@@ -18,10 +19,17 @@ const UserMenu = () => {
 
   return (
     <div className={css.box}>
-     <h3 className={css.text}><FaRegUser className={css.icon} /> {user.name}</h3>
+      {user && user.name ? (
+        <h3 className={css.text}>
+          <FaRegUser className={css.icon} /> {user.name}
+        </h3>
+      ) : (
+        <h3 className={css.text}>
+          <FaRegUser className={css.icon} /> Guest
+        </h3>
+      )}
       <button type="button" className={css.btn} onClick={logOut}>
-      <CiLogout />
-       Log Out
+        <CiLogout /> Log Out
       </button>
     </div>
   );

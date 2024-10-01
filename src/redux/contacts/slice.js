@@ -8,7 +8,7 @@ const initialState = {
     error: null,
 }
 
-export const contactsSlice = createSlice({
+const slice= createSlice({
     name: 'contacts',
     initialState,
     reducers: {},
@@ -68,4 +68,4 @@ export const contactsSlice = createSlice({
 }
 })
 
-export default contactsSlice.reducer;
+export const contactsReducer = slice.reducer;
