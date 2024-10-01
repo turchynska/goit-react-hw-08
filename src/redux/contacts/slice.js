@@ -68,4 +68,4 @@ const slice= createSlice({
 }
 })
 
-export const contactsReducer = slice.reducer;
+export default slice.reducer;

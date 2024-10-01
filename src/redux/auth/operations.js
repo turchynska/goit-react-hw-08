@@ -3,16 +3,18 @@ import { clearAuthHeader, instance, setAuthHeaders } from "../../service/instanc
 
 
 
-export const registerAuth = createAsyncThunk('auth/register',
-     async (userData, thunkApi) => {
-        try{
-     const data = await instance.post('users/signup', userData)
-     setAuthHeaders(data.token);
-     return data;
-        }catch(error){
-     return thunkApi.rejectWithValue(error.message)
+export const registerAuth = createAsyncThunk(
+        'auth/register',
+        async (userData, thunkApi) => {
+          try {
+            const { data } = await instance.post('users/signup', userData);
+            setAuthHeaders(data.token);
+            return data;
+          } catch (err) {
+            return thunkApi.rejectWithValue(err.message);
+          }
         }
-})
+      );
 
 export const login = createAsyncThunk('auth/login',
         async(userData, thunkApi) => {

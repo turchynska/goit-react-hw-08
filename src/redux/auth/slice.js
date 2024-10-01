@@ -66,4 +66,4 @@ builder
     state.isRefreshing = false;
 })
 }})
-export const authReducer = slice.reducer;
+export default slice.reducer;
