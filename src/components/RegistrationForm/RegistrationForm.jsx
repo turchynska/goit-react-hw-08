@@ -1,11 +1,11 @@
-import css from './RegisterForm.module.css';
+import css from './RegistrationForm.module.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import { registerAuth } from '../../redux/auth/operations';
 import { selectAuthError } from '../../redux/auth/selectors';
 
-const RegisterForm = () => {
+const RegistrationForm = () => {
   const nameField = 'name-field';
   const emailField = 'email-field';
   const passwordField = 'password-field';
@@ -96,4 +96,4 @@ const RegisterForm = () => {
   );
 }
 
-export default RegisterForm;
+export default RegistrationForm;
