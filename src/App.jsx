@@ -10,7 +10,7 @@ import RestrictedRoute from './components/RestrictedRoute';
 import PrivateRoute from './components//PrivateRoute';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
-const RegisterPage = lazy(() => import('./pages/RegisterPage/RegisterPage'));
+const RegistrationPage = lazy(() => import('./pages/RegistrationPage/RegistrationPage'));
 const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
 const ContactsPage = lazy(() => import('./pages/ContactsPage/ContactsPage'));
 
@@ -32,7 +32,7 @@ function App() {
           path='/register' 
           element={
             <RestrictedRoute redirectTo="/contacts">
-              <RegisterPage />
+              <RegistrationPage />
             </RestrictedRoute>
           }
         />
